@@ -16,7 +16,7 @@ import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 })
 export class SwitcherComponent implements OnInit {
 
-  checked = model<boolean>
+  checked = model(false);
   constructor() {
   }
   coffeeDates : Date[];
@@ -26,7 +26,7 @@ export class SwitcherComponent implements OnInit {
     this.switcherControl.valueChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((value)=>{
       if (value) {
         const daysArray = localStorage?.getItem('coffeDays');
-        this.coffeeDates = daysArray ? daysArray.toArray();
+        this.coffeeDates = daysArray ? daysArray;
         localStorage.setItem('coffeDays', dFns.format(new Date(), 'dd-mm-yyyy'));
       }
     })
