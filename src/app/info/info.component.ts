@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-info',
@@ -10,6 +10,8 @@ import {Component, OnInit} from '@angular/core';
 export class InfoComponent implements OnInit {
 
   count: string | null = '';
+
+  coffeeDates =  input<Date[]>();
 
   ngOnInit(): void {
 

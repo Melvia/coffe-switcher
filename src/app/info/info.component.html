@@ -1,1 +1,6 @@
 <p>Вы не пили кофе {{ count }} дней</p>
+
+<p>Дни, когда пили кофе:</p>
+@for (coffeDate of coffeeDates(); track $index) {
+  <p>{{ coffeDate }}</p>
+}
