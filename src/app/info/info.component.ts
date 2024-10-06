@@ -9,15 +9,18 @@ import {Component, OnInit} from '@angular/core';
 })
 export class InfoComponent implements OnInit {
 
-  count: string|null = '';
+  count: string | null = '';
+
   ngOnInit(): void {
 
-   this.count = localStorage.getItem('countDays');
+    if (!localStorage) {
+      return;
+    }
+    this.count = localStorage?.getItem('countDays');
     if (!this.count) {
       localStorage.setItem('countDays', '6');
     }
   }
-
 
 
 }
